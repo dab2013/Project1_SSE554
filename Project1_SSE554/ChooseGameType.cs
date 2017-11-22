@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project1_SSE554
@@ -23,23 +16,46 @@ namespace Project1_SSE554
 
         private void button3_Click(object sender, EventArgs e)
         {
-            value = value.Replace(" ", "");
-            int gameType = chosen.setGameType(value);
-
-            if(gameType ==10)
-                MessageBox.Show("Please Select a Game");
-            else if(gameType == 0 || gameType == 1)
+            if (value != null)
             {
-                GameResults selection = new GameResults(gameType);
-                selection.Show();
-                this.Hide();
+                value = value.Replace(" ", "");
+                int gameType = chosen.setGameType(value);
+
+                if (gameType == 10)
+                    MessageBox.Show("Please Select a Game");
+                else if (gameType == 0 || gameType == 1)
+                {
+                    GameResults selection = new GameResults(gameType);
+                    selection.Show();
+                    this.Hide();
+                }
+                else if (gameType == 3)
+                {
+                    GuessTheTvShow selection = new GuessTheTvShow();
+                    selection.Show();
+                    this.Hide();
+                }
+                else if (gameType == 4)
+                {
+                    Yahtzee selection = new Yahtzee();
+                    selection.Show();
+                    this.Hide();
+                }
+                else if (gameType == 5)
+                {
+                    IceCreamShop selection = new IceCreamShop();
+                    selection.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    GuessTheNumber selection = new GuessTheNumber(chosen.numberRangeChosen(comboBox2.Text));
+                    selection.Show();
+                    this.Hide();
+                }
             }
             else
-            {
-                GuessTheNumber selection = new GuessTheNumber(gameType, chosen.numberRangeChosen(comboBox2.Text));
-                selection.Show();
-                this.Hide();
-            }
+                MessageBox.Show("Please Select a Game");
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
@@ -61,6 +77,27 @@ namespace Project1_SSE554
             comboBox2.Visible = false;
             label2.Visible = false;
             value = radioButton1.Text;
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox2.Visible = false;
+            label2.Visible = false;
+            value = radioButton4.Text;
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox2.Visible = false;
+            label2.Visible = false;
+            value = radioButton5.Text;
+        }
+
+        private void radioButton6_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox2.Visible = false;
+            label2.Visible = false;
+            value = radioButton6.Text;
         }
     }
 }

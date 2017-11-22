@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Project1_SSE554
 {
@@ -21,7 +17,13 @@ namespace Project1_SSE554
                 num = 1;
             else if (type == "GuessTheNumber")
                 num = 2;
-
+            else if (type == "GuessTheTVShow")
+                num = 3;
+            else if (type == "Yahtzee")
+                num = 4;
+            else if (type == "IceCreamShop")
+                num = 5;
+            
             return num;
         }
 

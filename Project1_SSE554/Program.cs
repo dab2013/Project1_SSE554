@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project1_SSE554
@@ -16,7 +13,7 @@ namespace Project1_SSE554
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ChooseGameType());
+            Application.Run(new Login());
         }
     }
 }

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project1_SSE554
@@ -15,7 +8,7 @@ namespace Project1_SSE554
         int computerChoice, tries, counter =1;
         GameType chosen = new GameType();
 
-        public GuessTheNumber(int gameChoice, int[] range)
+        public GuessTheNumber(int[] range)
         {
             InitializeComponent();
             comboBox2.SelectedItem = "1-10";
@@ -76,7 +69,7 @@ namespace Project1_SSE554
 
         private void button2_Click(object sender, EventArgs e)
         {
-            GuessTheNumber again = new GuessTheNumber(2, chosen.numberRangeChosen(comboBox2.Text));
+            GuessTheNumber again = new GuessTheNumber(chosen.numberRangeChosen(comboBox2.Text));
             again.Show();
             this.Hide();
             counter =1;

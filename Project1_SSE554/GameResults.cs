@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project1_SSE554
@@ -77,71 +70,9 @@ namespace Project1_SSE554
 
         public void winner(string user, string computer)
         {
-            if (user.Equals("rock"))
-            {
-                if (computer.Equals("rock"))
-                    textBox1.Text = "How boring a tie";
-                else if (computer.Equals("paper"))
-                    textBox1.Text = "Paper covers rock - You Lose";
-                else if (computer.Equals("scissors"))
-                    textBox1.Text = "Rock crushes scissors - You Win";
-                else if (computer.Equals("lizard"))
-                    textBox1.Text = "Rock crushes lizard - You Win";
-                else if (computer.Equals("spock"))
-                    textBox1.Text = "Spock vaporizes rock - You Lose";
-            }
-            else if (user.Equals("paper"))
-            {
-                if (computer.Equals("rock"))
-                    textBox1.Text = "Rock crushes scissors - You Win";
-                else if (computer.Equals("paper"))
-                    textBox1.Text = "How boring a tie";
-                else if (computer.Equals("scissors"))
-                    textBox1.Text = "Scissors cuts paper - You Lose";
-                else if (computer.Equals("lizard"))
-                    textBox1.Text = "Lizard eats paper - You Lose";
-                else if (computer.Equals("spock"))
-                    textBox1.Text = "Paper disproves Spock - You Win";
-            }
-            else if (user.Equals("scissors"))
-            {
-                if (computer.Equals("rock"))
-                    textBox1.Text = "Rock crushes scissors - You Lose";
-                else if (computer.Equals("paper"))
-                    textBox1.Text = "Scissors cuts paper - You Win";
-                else if (computer.Equals("scissors"))
-                    textBox1.Text = "How boring a tie";
-                else if (computer.Equals("lizard"))
-                    textBox1.Text = "Scissors decapitates lizard - You Win";
-                else if (computer.Equals("spock"))
-                    textBox1.Text = "Spock smashes scissors - You Lose";
-            }
-            else if (user.Equals("lizard"))
-            {
-                if (computer.Equals("rock"))
-                    textBox1.Text = "Rock crushes lizard - You Lose";
-                else if (computer.Equals("paper"))
-                    textBox1.Text = "Lizard eats paper - You Win";
-                else if (computer.Equals("scissors"))
-                    textBox1.Text = "Scissors decapitates lizard - You Lose";
-                else if (computer.Equals("lizard"))
-                    textBox1.Text = "How boring a tie";
-                else if (computer.Equals("spock"))
-                    textBox1.Text = "Lizard poisons Spock - You Win";
-            }
-            else if (user.Equals("spock"))
-            {
-                if (computer.Equals("rock"))
-                    textBox1.Text = "Spock vaporizes rock - You Win";
-                else if (computer.Equals("paper"))
-                    textBox1.Text = "Paper disproves Spock - You Lose";
-                else if (computer.Equals("scissors"))
-                    textBox1.Text = "Spock smashes scissors - You Win";
-                else if (computer.Equals("lizard"))
-                    textBox1.Text = "Lizard poisons Spock - You Lose";
-                else if (computer.Equals("spock"))
-                    textBox1.Text = "How boring a tie";
-            }
+            var results = GameResultsClass.getResultsFactory(user, computer);
+            if (results != null || results.getFinalsSaying() != "")
+                textBox1.Text = results.getFinalsSaying();
 
             string win = "You Win";
             string lose = "You Lose";

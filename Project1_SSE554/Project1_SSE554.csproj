@@ -52,19 +52,22 @@
     <Compile Include="ChooseGameType.Designer.cs">
       <DependentUpon>ChooseGameType.cs</DependentUpon>
     </Compile>
+    <Compile Include="EffectComponent.cs" />
+    <Compile Include="Enemy.cs" />
     <Compile Include="LibraryTrackers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LibraryTrackers.Designer.cs">
       <DependentUpon>LibraryTrackers.cs</DependentUpon>
     </Compile>
-    <Compile Include="XboxPlatformTextBase.cs">
+    <Compile Include="PlayerControls.cs" />
+    <Compile Include="PlayerStats.cs" />
+    <Compile Include="PlayerXboxControls.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="XboxPlatformTextBase.Designer.cs">
-      <DependentUpon>XboxPlatformTextBase.cs</DependentUpon>
+    <Compile Include="PlayerXboxControls.Designer.cs">
+      <DependentUpon>PlayerXboxControls.cs</DependentUpon>
     </Compile>
-    <Compile Include="XboxControllerCommands.cs" />
     <Compile Include="ComputerSpock.cs" />
     <Compile Include="GameResults.cs">
       <SubType>Form</SubType>
@@ -92,11 +95,11 @@
     <Compile Include="HowManyGames.Designer.cs">
       <DependentUpon>HowManyGames.cs</DependentUpon>
     </Compile>
-    <Compile Include="IceCreamShop.cs">
+    <Compile Include="IceCreamAndBurgerShop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IceCreamShop.Designer.cs">
-      <DependentUpon>IceCreamShop.cs</DependentUpon>
+    <Compile Include="IceCreamAndBurgerShop.Designer.cs">
+      <DependentUpon>IceCreamAndBurgerShop.cs</DependentUpon>
     </Compile>
     <Compile Include="Instructions.cs">
       <SubType>Form</SubType>
@@ -112,6 +115,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShopKeeper.cs" />
     <Compile Include="SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,8 +144,8 @@
     <EmbeddedResource Include="HowManyGames.resx">
       <DependentUpon>HowManyGames.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IceCreamShop.resx">
-      <DependentUpon>IceCreamShop.cs</DependentUpon>
+    <EmbeddedResource Include="IceCreamAndBurgerShop.resx">
+      <DependentUpon>IceCreamAndBurgerShop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Instructions.resx">
       <DependentUpon>Instructions.cs</DependentUpon>

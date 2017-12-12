@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Project1_SSE554
 {
-    public partial class IceCreamShop : Form
+    public partial class IceCreamAndBurgerShop : Form
     {
         string radioButtonFlavor = "Vanilla";
         double moneyMade = 0.0;
@@ -21,13 +21,15 @@ namespace Project1_SSE554
         string[,] customer1, customer2, customer3, customer4, customer5;
         int totalOrders = 0;
 
-        public IceCreamShop()
+        public IceCreamAndBurgerShop()
         {
             InitializeComponent();
 
             customer1 = cutomerOrder();
             Customer1IceCreamFlavor.Text = customer1[0, 0];
-            Customer1IceCreamToppings.Text = customer1[0, 1];
+            EffectComponent Damaging = new Effect("Damaging");
+            Damaging.addEffect(new EffectItem("posion", 1));
+            Customer1IceCreamToppings.Text = Damaging.getAllEffectDescription()[0];
 
             customer2 = cutomerOrder();
             Customer2IceCreamFlavor.Text = customer2[0, 0];
@@ -494,6 +496,143 @@ namespace Project1_SSE554
         }
     }
     #endregion
+
+    #endregion
+
+    #region Template Pattern
+
+    public abstract class Burger
+    {
+        public string makeBurger()
+        {
+            string order = "";
+            if (Patty())
+            {
+                order += addPatty();
+            }
+            if (Cheese())
+            {
+                order += addCheese();
+            }
+            if (Lettuce())
+            {
+                order += addLettuce();
+            }
+            if (Tomato())
+            {
+                order += addTomato();
+            }
+            if (TofuPatty())
+            {
+                order += addTofuPatty();
+            }
+            if (Condiments())
+            {
+                order += addCondiments();
+            }
+            if (Bacon())
+            {
+                order += addBacon();
+            }
+            if (Pickles())
+            {
+                order += addPickles();
+            }
+
+            return order;
+        }
+
+        public abstract string addPatty();
+        public abstract string addCheese();
+        public abstract string addLettuce();
+        public abstract string addTomato();
+        public abstract string addTofuPatty();
+        public abstract string addCondiments();
+        public abstract string addBacon();
+        public abstract string addPickles();
+
+        public Boolean Patty() { return true; }
+        public Boolean Cheese() { return true; }
+        public Boolean Lettuce() { return true; }
+        public Boolean Tomato() { return true; }
+        public Boolean TofuPatty() { return true; }
+        public Boolean Condiments() { return true; }
+        public Boolean Bacon() { return true; }
+        public Boolean Pickles() { return true; }
+    }
+
+    public class RegularBurger : Burger
+    {
+        String condiments =  "Ketchup Mustard " ;
+
+        new Boolean TofuPatty() { return false; }
+        new Boolean Pickles() { return false; }
+        new Boolean Bacon() { return false; }
+
+        public override string addPatty() { return "Patty "; }
+        public override string addCheese() { return "Cheese "; }
+        public override string addLettuce() { return "Lettuce "; }
+        public override string addTomato() { return "Tomato "; }
+        public override string addCondiments() { return condiments; }
+
+        public override string addTofuPatty() { return ""; }
+        public override string addBacon() { return ""; }
+        public override string addPickles() { return ""; }
+    }
+
+    public class BaconBurger : Burger
+    {
+        String condiments = "Ketchup Mustard ";
+
+        new Boolean TofuPatty() { return false; }
+        new Boolean Pickles() { return false; }
+
+        public override string addPatty() { return "Patty "; }
+        public override string addCheese() { return "Cheese "; }
+        public override string addLettuce() { return "Lettuce "; }
+        public override string addTomato() { return "Tomato "; }
+        public override string addCondiments() { return condiments; }
+        public override string addBacon() { return "Bacon "; }
+
+        public override string addTofuPatty() { return ""; }
+        public override string addPickles() { return ""; }
+    }
+
+    public class SpecialBurger : Burger
+    {
+        String condiments = "Ketchup Mustard ";
+
+        new Boolean TofuPatty() { return false; }
+
+        public override string addPatty() { return "Patty "; }
+        public override string addCheese() { return "Cheese "; }
+        public override string addLettuce() { return "Lettuce "; }
+        public override string addTomato() { return "Tomato "; }
+        public override string addCondiments() { return condiments; }
+        public override string addBacon() { return "Bacon "; }
+        public override string addPickles() { return "Pickles "; }
+
+        public override string addTofuPatty() { return ""; }
+    }
+
+    public class VeggieBurger : Burger
+    {
+        String condiments = "Ketchup Mustard ";
+
+        new Boolean Patty() { return false; }
+        new Boolean Cheese() { return false; }
+        new Boolean Bacon() { return false; }
+
+        public override string addLettuce() { return "Lettuce "; }
+        public override string addTomato() { return "Tomato "; }
+        public override string addCondiments() { return condiments; }
+        public override string addPickles() { return "Pickles "; }
+        public override string addTofuPatty() { return "Tofu Patty "; }
+
+        public override string addPatty() { return ""; }
+        public override string addCheese() { return ""; }
+        public override string addBacon() { return ""; }
+    }
 
     #endregion
 }

@@ -1,6 +1,6 @@
 ﻿namespace Project1_SSE554
 {
-    partial class IceCreamShop
+    partial class IceCreamAndBurgerShop
     {
         /// <summary>
         /// Required designer variable.

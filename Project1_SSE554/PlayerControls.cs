@@ -1,22 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Project1_SSE554
 {
-    public partial class XboxPlatformTextBase : Form
+    class PlayerControls
     {
-        public XboxPlatformTextBase()
-        {
-            InitializeComponent();
-        }
     }
+
 
     public interface controls
     {
@@ -97,7 +90,7 @@ namespace Project1_SSE554
     }
 
     #region Command classes
-    public class pressHome: buttonPress
+    public class pressHome : buttonPress
     {
         controls hButton;
 

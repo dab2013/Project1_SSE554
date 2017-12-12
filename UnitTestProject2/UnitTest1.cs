@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Project1_SSE554;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace UnitTestProject2
 {
@@ -96,6 +97,38 @@ namespace UnitTestProject2
 
             results = GameResultsClass.getResultsFactory("scissors", "scissors");
             Assert.IsTrue(results.getFinalsSaying() =="How boring a tie");
+        }
+
+        [TestMethod]
+        public void TestAdapterPattern()
+        {
+            Skeleton skelly = new Skeleton();
+            SkeletonAdapter skeleton = new SkeletonAdapter(skelly);
+
+            Assert.IsTrue(skeleton.health() <= 10 && skeleton.health() >= 5);
+        }
+
+        [TestMethod]
+        public void TestStatePattern()
+        {
+            ShopKeeper shopKeep = new ShopKeeper();
+            SellingState state = new SellingState(shopKeep);
+            Assert.IsTrue(shopKeep.getState().ToString() == state.ToString());
+        }
+
+        [TestMethod]
+        public void TestCompositePattern()
+        {
+            EffectComponent Damaging = new Effect("Damaging");
+            Damaging.addEffect(new EffectItem("posion", 1));
+            Assert.IsTrue(Damaging.getAllEffectDescription()[0] == "Damaging - The potion is poison and lasts for 1 turn(s)");
+        }
+
+        [TestMethod]
+        public void TestTemplatePattern()
+        {
+            RegularBurger customer1 = new RegularBurger();
+            Assert.IsTrue(customer1.makeBurger() == "Patty Cheese Lettuce Tomato Ketchup Mustard ");
         }
     }
 }

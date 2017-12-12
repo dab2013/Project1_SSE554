@@ -43,7 +43,7 @@ namespace Project1_SSE554
                 }
                 else if (gameType == 5)
                 {
-                    IceCreamShop selection = new IceCreamShop();
+                    IceCreamAndBurgerShop selection = new IceCreamAndBurgerShop();
                     selection.Show();
                     this.Hide();
                 }
